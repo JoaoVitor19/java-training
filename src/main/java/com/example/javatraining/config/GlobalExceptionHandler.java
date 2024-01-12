@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.javatraining.config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
