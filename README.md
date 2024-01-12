@@ -1,0 +1,1 @@
+This is a Java repository I created to learn and practice Java, building a RESTful API with Spring Boot. The project includes testing and serves as a playground for experimentation and improvement of Java programming skills.
