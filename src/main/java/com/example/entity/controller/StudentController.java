@@ -41,12 +41,12 @@ public class StudentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable int Id, @RequestBody Student student) {
-        return studentService.updateStudent(Id, student);
+    public ResponseEntity<Student> updateStudent(@PathVariable int id, @RequestBody Student student) {
+        return studentService.updateStudent(id, student);
     }
 
-    @DeleteMapping
-    public ResponseEntity<String> deleteStudent(int id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteStudent(@PathVariable int id) {
         return studentService.deleteStudent(id);
     }
 }

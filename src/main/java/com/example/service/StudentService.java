@@ -12,9 +12,7 @@ import com.example.entity.Student;
 @Service
 public class StudentService {
 
-    // private ArrayList<Student> studentList = new ArrayList<Student>();
-    
-    private static ArrayList<Student> studentList = new ArrayList<Student>();
+    private static List<Student> studentList = new ArrayList<>();
 
     public ResponseEntity<Student> findStudentById(int id) {
         Student student = studentList.get(id);
@@ -32,19 +30,17 @@ public class StudentService {
         if (studentList.contains(student)) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
         } else {
+            studentList.add(student);
             return ResponseEntity.status(HttpStatus.CREATED).body(student);
         }
     }
 
-    public ResponseEntity<Student> updateStudent(int Id, Student student) {
-
-        Student existingStudent = studentList.get(Id);
-
-        if (existingStudent == null) {
+    public ResponseEntity<Student> updateStudent(int id, Student student) {
+        if (!studentList.contains(student)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         } else {
-            studentList.set(Id, student);
-            return ResponseEntity.status(HttpStatus.OK).body(existingStudent);
+            studentList.set(id, student);
+            return ResponseEntity.status(HttpStatus.OK).body(student);
         }
     }
 
