@@ -7,6 +7,8 @@ import com.example.javatraining.service.StudentService;
 
 import lombok.AllArgsConstructor;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -53,5 +55,15 @@ public class StudentController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteStudent(@PathVariable @NonNull Long id) {
         return studentService.deleteStudent(id);
+    }
+
+    @GetMapping("/nativesql/{name}")
+    public List<Student> findByNameWithNativeQuery(@PathVariable @NonNull String name) {
+        return studentService.findByNameWithNativeQuery(name);
+    }
+
+    @GetMapping("/jpql/{name}")
+    public List<Student> findByNameWithJPQL(@PathVariable @NonNull String name) {
+        return studentService.findByNameWithJPQL(name);
     }
 }

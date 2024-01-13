@@ -1,5 +1,6 @@
 package com.example.javatraining.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -30,6 +31,14 @@ public class StudentService {
 
     public Page<Student> findAllStudents(@NonNull PageRequest page) {
         return studentRepository.findAll(page);
+    }
+
+    public List<Student> findByNameWithNativeQuery(@NonNull String name){
+        return studentRepository.findByNameWithNativeQuery(name);
+    }
+
+    public List<Student> findByNameWithJPQL(@NonNull String name){
+        return studentRepository.findByNameWithJPQL(name);
     }
 
     public ResponseEntity<Student> registerStudent(@NonNull Student student) {
