@@ -42,6 +42,7 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<Student> registerStudent(@RequestBody @NonNull Student student) {
+        System.out.println("oi");
         return studentService.registerStudent(student);
     }
 
